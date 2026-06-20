@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ดูคอร์ส | Krajood Craft</title>
+    <meta name="description" content="เรียนรู้การสานกระจูดแบบ step-by-step พร้อมวิดีโอสอนจากผู้เชี่ยวชาญ">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="course-viewer.css">
+</head>
+
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="viewer-header" id="header">
+        <div class="header-left">
+            <a href="courses.html" class="btn-back" id="backBtn">← กลับ</a>
+            <div class="header-course-info">
+                <h2 id="courseTitle">กำลังโหลด...</h2>
+                <span class="header-meta" id="courseMeta"></span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-info" id="userInfo" style="display:none;">
+                <div class="user-avatar" id="userAvatar">U</div>
+            </div>
+            <a href="auth.html" class="btn-login-sm" id="loginBtn">เข้าสู่ระบบ</a>
+        </div>
+    </header>
+
+    <!-- ===== MAIN LAYOUT ===== -->
+    <div class="viewer-layout">
+        <!-- Video Player Area -->
+        <div class="viewer-main">
+            <!-- Loading State -->
+            <div class="video-loading" id="videoLoading">
+                <div class="loading-spinner"></div>
+                <p>กำลังโหลดคอร์ส...</p>
+            </div>
+
+            <!-- Video Container -->
+            <div class="video-container" id="videoContainer" style="display:none;">
+                <!-- YouTube Embed or HTML5 Video -->
+                <div class="video-wrapper" id="videoWrapper">
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <span>🎥</span>
+                        <p>เลือกคลิปจากรายการด้านข้าง<br>เพื่อเริ่มเรียน</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clip Details -->
+            <div class="clip-details" id="clipDetails" style="display:none;">
+                <div class="clip-details-header">
+                    <span class="clip-step-badge" id="clipStep">Step 1</span>
+                    <span class="clip-duration" id="clipDuration"></span>
+                </div>
+                <h3 id="clipTitle">ชื่อคลิป</h3>
+                <div class="clip-description" id="clipDescription">
+                    <!-- Description content -->
+                </div>
+            </div>
+
+            <!-- Course Description -->
+            <div class="course-description-card" id="courseDescCard">
+                <h3>เกี่ยวกับคอร์สนี้</h3>
+                <p id="courseDescription"></p>
+            </div>
+        </div>
+
+        <!-- Clips Sidebar -->
+        <aside class="clips-sidebar" id="clipsSidebar">
+            <div class="sidebar-header">
+                <h3>📹 รายการคลิป</h3>
+                <span class="clip-count" id="clipCount">0 คลิป</span>
+            </div>
+            <div class="clips-list" id="clipsList">
+                <!-- Dynamic clips list -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Mobile Clips Toggle -->
+    <button class="mobile-clips-toggle" id="mobileClipsToggle">
+        📹 รายการคลิป
+    </button>
+
+    <script type="module" src="course-viewer.js"></script>
+</body>
+
+</html>

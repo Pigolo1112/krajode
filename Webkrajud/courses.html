@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คอร์สเรียน | Krajood Craft</title>
+    <meta name="description" content="คอร์สเรียนสานกระจูดออนไลน์ทุกระดับ จากพื้นฐานถึงขั้นสูง พร้อมวิดีโอสอน step-by-step">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="courses.css">
+</head>
+
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="courses-header" id="header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🌾</span>
+            Krajood Craft
+        </a>
+        <nav class="header-nav">
+            <a href="index.html">หน้าแรก</a>
+            <a href="courses.html" class="active">คอร์สเรียน</a>
+        </nav>
+        <div class="header-actions">
+            <div class="user-menu" id="userMenu" style="display:none;">
+                <div class="user-avatar" id="userAvatar">U</div>
+                <span class="user-name" id="userName">ผู้ใช้</span>
+                <button class="btn-logout-sm" id="logoutBtn">ออกจากระบบ</button>
+            </div>
+            <a href="auth.html" class="btn-login" id="loginBtn">เข้าสู่ระบบ</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <!-- ===== HERO BANNER ===== -->
+    <section class="courses-hero">
+        <div class="courses-hero-bg"></div>
+        <div class="courses-hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                คอร์สเรียนออนไลน์
+            </div>
+            <h1>เรียนรู้การสานกระจูด<br>ทุกระดับ ทุกที่ ทุกเวลา</h1>
+            <p>เลือกคอร์สที่เหมาะกับคุณ พร้อมวิดีโอสอน step-by-step จากช่างผู้เชี่ยวชาญ</p>
+        </div>
+    </section>
+
+    <!-- ===== FILTER TABS ===== -->
+    <section class="courses-content">
+        <div class="filter-bar">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-tab" data-filter="beginner">ระดับเริ่มต้น</button>
+                <button class="filter-tab" data-filter="intermediate">ระดับกลาง</button>
+                <button class="filter-tab" data-filter="advanced">ระดับสูง</button>
+            </div>
+            <div class="courses-count" id="coursesCount">0 คอร์ส</div>
+        </div>
+
+        <!-- ===== COURSES GRID ===== -->
+        <div class="courses-grid" id="coursesGrid">
+            <!-- Loading skeleton -->
+            <div class="course-skeleton">
+                <div class="skeleton-img"></div>
+                <div class="skeleton-body">
+                    <div class="skeleton-line w80"></div>
+                    <div class="skeleton-line w60"></div>
+                    <div class="skeleton-line w40"></div>
+                </div>
+            </div>
+            <div class="course-skeleton">
+                <div class="skeleton-img"></div>
+                <div class="skeleton-body">
+                    <div class="skeleton-line w80"></div>
+                    <div class="skeleton-line w60"></div>
+                    <div class="skeleton-line w40"></div>
+                </div>
+            </div>
+            <div class="course-skeleton">
+                <div class="skeleton-img"></div>
+                <div class="skeleton-body">
+                    <div class="skeleton-line w80"></div>
+                    <div class="skeleton-line w60"></div>
+                    <div class="skeleton-line w40"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display:none;">
+            <span class="empty-icon">📚</span>
+            <h3>ยังไม่มีคอร์สเรียน</h3>
+            <p>คอร์สเรียนกำลังจะมาเร็วๆ นี้ กรุณากลับมาตรวจสอบอีกครั้ง</p>
+            <a href="index.html" class="btn-back-home">← กลับหน้าแรก</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="courses-footer">
+        <div class="footer-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌾</span>
+                Krajood Craft
+            </a>
+            <p>© 2025 Krajood Craft — เรียนรู้ศิลปะการสานกระจูด</p>
+        </div>
+    </footer>
+
+    <script type="module" src="courses.js"></script>
+</body>
+
+</html>

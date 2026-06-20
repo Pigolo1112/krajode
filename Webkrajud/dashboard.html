@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Krajood Craft</title>
+    <meta name="description" content="แดชบอร์ดผู้ดูแลระบบ จัดการคอร์สเรียนและผู้ใช้งาน Krajood Craft">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner"></div>
+        <p>กำลังตรวจสอบสิทธิ์...</p>
+    </div>
+
+    <div class="dashboard-layout" id="dashboardLayout" style="display:none;">
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span class="logo-icon">🌾</span>
+                    <span class="logo-text">Krajood Craft</span>
+                </a>
+                <span class="admin-badge">ADMIN</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="overview" id="nav-overview">
+                    <span class="nav-icon">📊</span>
+                    <span>ภาพรวม</span>
+                </a>
+                <a href="#" class="nav-item" data-section="courses" id="nav-courses">
+                    <span class="nav-icon">📚</span>
+                    <span>จัดการคอร์ส</span>
+                </a>
+                <a href="#" class="nav-item" data-section="users" id="nav-users">
+                    <span class="nav-icon">👥</span>
+                    <span>ผู้ใช้งาน</span>
+                </a>
+                <a href="#" class="nav-item" data-section="products" id="nav-products">
+                    <span class="nav-icon">🛒</span>
+                    <span>จัดการสินค้า</span>
+                </a>
+                <a href="#" class="nav-item" data-section="orders" id="nav-orders">
+                    <span class="nav-icon">📦</span>
+                    <span>คำสั่งซื้อ</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile" id="adminProfile">
+                    <div class="admin-avatar" id="adminAvatar">A</div>
+                    <div class="admin-info">
+                        <span class="admin-name" id="adminName">Admin</span>
+                        <span class="admin-email" id="adminEmail">admin@email.com</span>
+                    </div>
+                </div>
+                <button class="btn-logout" id="logoutBtn">
+                    🚪 ออกจากระบบ
+                </button>
+            </div>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+                <h2 class="page-title" id="pageTitle">ภาพรวม</h2>
+                <div class="topbar-actions">
+                    <a href="index.html" class="btn-topbar" target="_blank">🌐 ดูเว็บไซต์</a>
+                </div>
+            </div>
+
+            <!-- ===== OVERVIEW SECTION ===== -->
+            <section class="dashboard-section active" id="section-overview">
+                <div class="stats-grid">
+                    <div class="stat-card" id="stat-total-users">
+                        <div class="stat-card-icon" style="background: rgba(85,107,47,0.12); color: #556B2F;">👥</div>
+                        <div class="stat-card-info">
+                            <span class="stat-card-number" id="totalUsers">0</span>
+                            <span class="stat-card-label">ผู้ใช้ทั้งหมด</span>
+                        </div>
+                    </div>
+                    <div class="stat-card" id="stat-total-courses">
+                        <div class="stat-card-icon" style="background: rgba(212,195,163,0.2); color: #B8A382;">📚</div>
+                        <div class="stat-card-info">
+                            <span class="stat-card-number" id="totalCourses">0</span>
+                            <span class="stat-card-label">คอร์สทั้งหมด</span>
+                        </div>
+                    </div>
+                    <div class="stat-card" id="stat-total-clips">
+                        <div class="stat-card-icon" style="background: rgba(107,138,62,0.12); color: #6B8A3E;">🎥</div>
+                        <div class="stat-card-info">
+                            <span class="stat-card-number" id="totalClips">0</span>
+                            <span class="stat-card-label">คลิปทั้งหมด</span>
+                        </div>
+                    </div>
+                    <div class="stat-card" id="stat-new-users">
+                        <div class="stat-card-icon" style="background: rgba(46,204,113,0.12); color: #2ECC71;">✨</div>
+                        <div class="stat-card-info">
+                            <span class="stat-card-number" id="newUsers">0</span>
+                            <span class="stat-card-label">สมาชิกใหม่วันนี้</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📋 คอร์สเรียนล่าสุด</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="recent-courses-list" id="recentCoursesList">
+                            <div class="empty-state">
+                                <span>📚</span>
+                                <p>ยังไม่มีคอร์สเรียน</p>
+                                <button class="btn-primary-sm" onclick="document.getElementById('nav-courses').click()">
+                                    + เพิ่มคอร์สแรก
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== COURSES SECTION ===== -->
+            <section class="dashboard-section" id="section-courses">
+                <div class="section-actions">
+                    <button class="btn-primary" id="addCourseBtn">
+                        ➕ เพิ่มคอร์สใหม่
+                    </button>
+                </div>
+
+                <div class="courses-table-container">
+                    <table class="data-table" id="coursesTable">
+                        <thead>
+                            <tr>
+                                <th>ภาพปก</th>
+                                <th>ชื่อคอร์ส</th>
+                                <th>ระดับ</th>
+                                <th>จำนวนคลิป</th>
+                                <th>วันที่สร้าง</th>
+                                <th>จัดการ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="coursesTableBody">
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+                    <div class="empty-state" id="coursesEmpty">
+                        <span>📚</span>
+                        <p>ยังไม่มีคอร์สเรียน กดปุ่ม "เพิ่มคอร์สใหม่" เพื่อเริ่มต้น</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== USERS SECTION ===== -->
+            <section class="dashboard-section" id="section-users">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>👥 รายชื่อผู้ใช้ทั้งหมด</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table" id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>ผู้ใช้</th>
+                                    <th>อีเมล</th>
+                                    <th>สถานะ</th>
+                                    <th>วันที่สมัคร</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                        <div class="empty-state" id="usersEmpty">
+                            <span>👤</span>
+                            <p>ยังไม่มีผู้ใช้งาน</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== PRODUCTS SECTION ===== -->
+            <section class="dashboard-section" id="section-products">
+                <div class="section-actions">
+                    <button class="btn-primary" id="addProductBtn">
+                        ➕ เพิ่มสินค้าใหม่
+                    </button>
+                </div>
+
+                <div class="courses-table-container">
+                    <table class="data-table" id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>รูปภาพ</th>
+                                <th>ชื่อสินค้า</th>
+                                <th>ราคา</th>
+                                <th>ป้าย</th>
+                                <th>สถานะ</th>
+                                <th>จัดการ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody"></tbody>
+                    </table>
+                    <div class="empty-state" id="productsEmpty">
+                        <span>🛒</span>
+                        <p>ยังไม่มีสินค้า กดปุ่ม "เพิ่มสินค้าใหม่" เพื่อเริ่มต้น</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== ORDERS SECTION ===== -->
+            <section class="dashboard-section" id="section-orders">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📦 คำสั่งซื้อทั้งหมด</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table" id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th>วันที่</th>
+                                    <th>ลูกค้า</th>
+                                    <th>สินค้า</th>
+                                    <th>จำนวน</th>
+                                    <th>ราคารวม</th>
+                                    <th>สถานะ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody"></tbody>
+                        </table>
+                        <div class="empty-state" id="ordersEmpty">
+                            <span>📭</span>
+                            <p>ยังไม่มีคำสั่งซื้อ</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ===== ADD/EDIT COURSE MODAL ===== -->
+    <div class="modal-overlay" id="courseModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">เพิ่มคอร์สใหม่</h3>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="courseForm">
+                    <input type="hidden" id="courseId">
+
+                    <div class="form-group">
+                        <label for="courseTitle">ชื่อคอร์ส *</label>
+                        <input type="text" id="courseTitle" placeholder="เช่น พื้นฐานการสานลายขัด" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="courseDescription">รายละเอียด *</label>
+                        <textarea id="courseDescription" rows="3"
+                            placeholder="อธิบายเนื้อหาคอร์สโดยสังเขป..." required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="courseLevel">ระดับ *</label>
+                            <select id="courseLevel" required>
+                                <option value="beginner">ระดับเริ่มต้น</option>
+                                <option value="intermediate">ระดับกลาง</option>
+                                <option value="advanced">ระดับสูง</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseCover">URL ภาพปก</label>
+                            <input type="url" id="courseCover" placeholder="https://...">
+                        </div>
+                    </div>
+
+                    <!-- Clips Section -->
+                    <div class="clips-section">
+                        <div class="clips-header">
+                            <h4>📹 คลิปวิดีโอในคอร์ส</h4>
+                            <button type="button" class="btn-add-clip" id="addClipBtn">+ เพิ่มคลิป</button>
+                        </div>
+                        <div class="clips-list" id="clipsList">
+                            <!-- Dynamic clips added here -->
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn-cancel" id="cancelCourseBtn">ยกเลิก</button>
+                        <button type="submit" class="btn-primary" id="saveCourseBtn">
+                            <span class="btn-text">บันทึกคอร์ส</span>
+                            <span class="btn-loader" style="display:none;"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DELETE CONFIRM MODAL ===== -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3>⚠️ ยืนยันการลบ</h3>
+                <button class="modal-close" id="deleteModalClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <p id="deleteMessage">คุณต้องการลบคอร์สนี้หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้</p>
+                <div class="modal-actions">
+                    <button class="btn-cancel" id="cancelDeleteBtn">ยกเลิก</button>
+                    <button class="btn-danger" id="confirmDeleteBtn">ลบ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PRODUCT MODAL ===== -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="productModalTitle">เพิ่มสินค้าใหม่</h3>
+                <button class="modal-close" id="productModalClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productTitle">ชื่อสินค้า *</label>
+                        <input type="text" id="productTitle" placeholder="เช่น ชุดคิท Beginner Set" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">รายละเอียด</label>
+                        <textarea id="productDescription" rows="3" placeholder="อธิบายสินค้า..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productPrice">ราคา (บาท) *</label>
+                            <input type="number" id="productPrice" placeholder="590" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productOriginalPrice">ราคาเดิม (บาท)</label>
+                            <input type="number" id="productOriginalPrice" placeholder="790" step="0.01">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productImage">URL รูปภาพ</label>
+                        <input type="url" id="productImage" placeholder="https://...">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productBadge">ป้ายกำกับ</label>
+                            <input type="text" id="productBadge" placeholder="เช่น 🔥 ขายดี, ✨ ใหม่">
+                        </div>
+                        <div class="form-group">
+                            <label for="productSortOrder">ลำดับแสดง</label>
+                            <input type="number" id="productSortOrder" value="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label" style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                            <input type="checkbox" id="productActive" checked>
+                            เปิดขายสินค้านี้
+                        </label>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-cancel" id="cancelProductBtn">ยกเลิก</button>
+                        <button type="submit" class="btn-primary">บันทึกสินค้า</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>

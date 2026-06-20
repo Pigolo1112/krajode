@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krajood Craft Linking Wisdom through Digital | เรียนรู้ศิลปะการสานกระจูด ภูมิปัญญาไทยสู่งานคราฟต์ร่วมสมัย
+    </title>
+    <meta name="description"
+        content="เว็บไซต์สอนสานกระจูดออนไลน์ เรียนรู้ศิลปะภูมิปัญญาท้องถิ่นจากพัทลุง ตั้งแต่ระดับเริ่มต้นถึงขั้นสูง พร้อมวิดีโอสอน วัสดุอุปกรณ์ครบเซ็ต และชุมชนนักสานที่แข็งแกร่ง">
+    <meta name="keywords"
+        content="กระจูด, สานกระจูด, งานคราฟต์, ภูมิปัญญาไทย, พัทลุง, ทะเลน้อย, หัตถกรรม, กระเป๋ากระจูด">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" id="header">
+        <a href="#home" class="logo">
+            <span class="logo-icon">🌾</span>
+            Krajood Craft
+        </a>
+        <nav class="main-nav" id="mainNav">
+            <a href="#home" class="active">หน้าแรก</a>
+            <a href="#story">เรื่องราว</a>
+            <a href="#materials">วัสดุอุปกรณ์</a>
+            <a href="courses.html">คอร์สเรียน</a>
+            <a href="#gallery">แกลเลอรี</a>
+            <a href="#shop">ร้านค้า</a>
+            <a href="#faq">คำถาม</a>
+        </nav>
+        <div class="header-auth">
+            <!-- Logged out state -->
+            <a href="auth.html" class="btn-nav-cta" id="authLoginBtn">เข้าสู่ระบบ</a>
+            <!-- Logged in state -->
+            <div class="user-menu-header" id="userMenuHeader" style="display:none;">
+                <div class="user-avatar-sm" id="userAvatarSm">U</div>
+                <span class="user-name-sm" id="userNameSm">ผู้ใช้</span>
+                <a href="courses.html" class="btn-nav-cta">เข้าเรียน</a>
+                <button class="btn-logout-header" id="headerLogoutBtn">ออก</button>
+            </div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="เปลี่ยนธีม">
+            <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+        </button>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="images/hero_banner.png" alt="ผลงานกระจูดสวยงาม" loading="eager">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <!-- Floating decorative elements -->
+        <div class="hero-float"></div>
+        <div class="hero-float"></div>
+        <div class="hero-float"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                เปิดสอนออนไลน์แล้ววันนี้
+            </div>
+
+            <h1>เปลี่ยนเส้นกระจูด<br>ให้เป็น<span class="highlight">งานดีไซน์</span></h1>
+
+            <p class="hero-desc">
+                เรียนรู้ศิลปะการสานกระจูด ภูมิปัญญาท้องถิ่นจากพัทลุง สู่การสร้างสรรค์ผลงานคราฟต์ร่วมสมัย
+                ไม่จำเป็นต้องมีพื้นฐานก็เรียนได้
+            </p>
+
+            <div class="hero-actions">
+                <a href="courses.html" class="btn-primary" id="hero-cta-primary">
+                    เริ่มเรียนฟรีวันนี้ →
+                </a>
+                <a href="#story" class="btn-secondary" id="hero-cta-secondary">
+                    🎥 ดูเรื่องราวกระจูด
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="stat-students">01</span>
+                    <span class="stat-label">ผู้เรียนทั่วประเทศ</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="stat-courses">01</span>
+                    <span class="stat-label">บทเรียนครบครัน</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="stat-rating">0</span>
+                    <span class="stat-label">คะแนนความพึงพอใจ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STORY SECTION ===== -->
+    <section class="story-section" id="story">
+        <div class="story-grid reveal">
+            <div class="story-image">
+                <img src="images/krajood_story.png" alt="ทะเลน้อย พัทลุง แหล่งกำเนิดกระจูด" loading="lazy">
+            </div>
+
+            <div class="story-text">
+                <div class="highlight-line"></div>
+                <h2>ทำความรู้จัก<br>"กระจูด"</h2>
+                <p>
+                    <strong>กระจูด</strong> เป็นพืชตระกูลกก ขึ้นอยู่ตามแหล่งน้ำธรรมชาติ โดยเฉพาะบริเวณ
+                    <strong>ทะเลน้อย จังหวัดพัทลุง</strong> ที่เป็นแหล่งกระจูดที่สำคัญที่สุดของประเทศไทย
+                    ชุมชนในพื้นที่สืบทอดภูมิปัญญาการสานกระจูดมากว่า 200 ปี
+                </p>
+                <p>
+                    เส้นกระจูดมีคุณสมบัติพิเศษ คือ <strong>เหนียว ยืดหยุ่น ทนทาน</strong> และมีกลิ่นหอมอ่อนๆ จากธรรมชาติ
+                    เมื่อผ่านกระบวนการคลุกโคลน ตากแดด และรีดให้แบน จะได้เส้นที่พร้อมสำหรับการสาน
+                    ทำให้ผลิตภัณฑ์มีความงดงาม แข็งแรง และมีเอกลักษณ์เฉพาะตัว
+                </p>
+
+                <div class="story-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌿</div>
+                        <div>
+                            <h4>วัสดุธรรมชาติ 100%</h4>
+                            <p>ปลอดภัย ย่อยสลายได้ เป็นมิตรกับสิ่งแวดล้อม</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💪</div>
+                        <div>
+                            <h4>เหนียวและทนทาน</h4>
+                            <p>ใช้งานได้นาน ไม่ขาดง่าย ทนทานต่อการใช้งาน</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <div>
+                            <h4>ย้อมสีได้หลากหลาย</h4>
+                            <p>ใช้สีธรรมชาติหรือสีเคมีย้อมได้ตามต้องการ</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏡</div>
+                        <div>
+                            <h4>ภูมิปัญญา 200+ ปี</h4>
+                            <p>สืบทอดจากรุ่นสู่รุ่น ณ ชุมชนทะเลน้อย</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MATERIALS & TOOLS SECTION ===== -->
+    <section class="materials-section" id="materials">
+        <div class="section-header reveal">
+            <span class="overline">เตรียมความพร้อม</span>
+            <h2>วัสดุและอุปกรณ์ที่ต้องเตรียม</h2>
+            <p>เตรียมทุกอย่างให้พร้อมก่อนเริ่มลงมือ เพื่อให้การเรียนรู้เป็นไปอย่างราบรื่นและสนุกสนาน</p>
+        </div>
+
+        <div class="materials-layout reveal">
+            <div class="materials-image">
+                <img src="images/materials_tools.png" alt="อุปกรณ์สำหรับสานกระจูด" loading="lazy">
+            </div>
+            <div class="materials-content">
+                <div class="material-list">
+                    <div class="material-card">
+                        <div class="material-number">1</div>
+                        <div>
+                            <h4>เส้นกระจูด</h4>
+                            <p>เลือกเส้นกระจูดที่ผ่านการรีดแบนแล้ว มีทั้งแบบเส้นดิบสีธรรมชาติ และแบบย้อมสีสำเร็จ
+                                ควรเลือกเส้นที่เรียบสม่ำเสมอ ไม่มีรอยขาด</p>
+                        </div>
+                    </div>
+                    <div class="material-card">
+                        <div class="material-number">2</div>
+                        <div>
+                            <h4>กรรไกรและสายวัด</h4>
+                            <p>กรรไกรคมๆ สำหรับตัดเส้นกระจูด และสายวัดเพื่อกำหนดขนาดชิ้นงาน
+                                ควรเลือกกรรไกรที่กระชับมือและตัดได้คมชัด</p>
+                        </div>
+                    </div>
+                    <div class="material-card">
+                        <div class="material-number">3</div>
+                        <div>
+                            <h4>บล็อกไม้ขึ้นรูป</h4>
+                            <p>ใช้สำหรับขึ้นรูปทรงกระเป๋าหรือกล่อง มีหลายทรงให้เลือก
+                                หรือสามารถประยุกต์ใช้กล่องในบ้านแทนได้</p>
+                        </div>
+                    </div>
+                    <div class="material-card">
+                        <div class="material-number">4</div>
+                        <div>
+                            <h4>การเตรียมเส้น</h4>
+                            <p>ขั้นตอนสำคัญ: คลุกโคลน → ตากแดด → รีดให้แบนด้วยเครื่องรีดหรือขวดแก้ว → ย้อมสี
+                                (ตามต้องการ) → พร้อมสาน!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COURSES / TUTORIALS SECTION ===== -->
+    <section class="courses-section" id="courses">
+        <div class="section-header reveal">
+            <span class="overline">บทเรียนการสาน</span>
+            <h2>คอร์สเรียนยอดนิยม</h2>
+            <p>เลือกคอร์สที่เหมาะกับระดับทักษะของคุณ พร้อมวิดีโอสอนและคำอธิบายทีละขั้นตอน</p>
+        </div>
+
+        <div class="course-tabs reveal">
+            <button class="course-tab active" data-filter="all">ทั้งหมด</button>
+            <button class="course-tab" data-filter="beginner">ระดับพื้นฐาน</button>
+            <button class="course-tab" data-filter="intermediate">ระดับกลาง</button>
+            <button class="course-tab" data-filter="advanced">ระดับสูง</button>
+        </div>
+
+        <div class="course-grid reveal" id="homeCourseGrid">
+            <!-- โหลดจาก Supabase -->
+            <div style="grid-column:1/-1; text-align:center; padding:40px; color:#777;">
+                <span class="btn-loader" style="display:inline-block; width:30px; height:30px; border:3px solid rgba(85,107,47,0.2); border-top-color:#556B2F; border-radius:50%; animation:spin 0.8s linear infinite;"></span>
+                <p style="margin-top:12px;">กำลังโหลดคอร์ส...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header reveal">
+            <span class="overline">แรงบันดาลใจ</span>
+            <h2>แกลเลอรีผลงาน</h2>
+            <p>ผลงานจากการสานกระจูดที่สามารถนำไปประยุกต์ใช้ในชีวิตประจำวันได้อย่างหลากหลาย</p>
+        </div>
+
+        <div class="gallery-grid reveal">
+            <div class="gallery-item" id="gallery-1">
+                <img src="images/hero_banner.png" alt="ผลงานกระเป๋ากระจูดสวยงาม" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <h4>คอลเลกชันกระเป๋ากระจูด</h4>
+                    <p>กระเป๋า Tote, Crossbody และ Clutch ลายสานประยุกต์</p>
+                </div>
+            </div>
+            <div class="gallery-item" id="gallery-2">
+                <img src="images/gallery_fashion.png" alt="กระเป๋ากระจูดแฟชั่น" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <h4>กระจูด x แฟชั่น</h4>
+                    <p>กระเป๋าสะพายร่วมสมัย เข้ากับทุกเสื้อผ้า</p>
+                </div>
+            </div>
+            <div class="gallery-item" id="gallery-3">
+                <img src="images/gallery_homeware.png" alt="ของแต่งบ้านจากกระจูด" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <h4>ของแต่งบ้านสไตล์มินิมอล</h4>
+                    <p>ตะกร้าเก็บของ กล่องทิชชู่ และแผ่นรองจานสาน</p>
+                </div>
+            </div>
+            <div class="gallery-item" id="gallery-4">
+                <img src="images/gallery_artpiece.png" alt="งานศิลปะจากกระจูด" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <h4>ศิลปะร่วมสมัย</h4>
+                    <p>Wall Hanging ลายมัณฑลา เส้นใยธรรมชาติ</p>
+                </div>
+            </div>
+            <div class="gallery-item" id="gallery-5">
+                <img src="images/weaving_advanced.png" alt="ของใช้ในบ้านจากกระจูด" loading="lazy">
+                <div class="gallery-item-overlay">
+                    <h4>กระจูดในห้องนั่งเล่น</h4>
+                    <p>โคมไฟ ถาดรองของ และจานรองแก้วสาน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SHOP SECTION ===== -->
+    <section class="shop-section" id="shop">
+        <div class="section-header reveal">
+            <span class="overline">ร้านค้าวัสดุ</span>
+            <h2>ชุดคิทและวัสดุพร้อมสาน</h2>
+            <p>ตอบโจทย์ทุกคนที่อยากเรียนแต่หาซื้อของไม่ได้ ส่งตรงจากชุมชนทะเลน้อย พัทลุง</p>
+        </div>
+
+        <div class="shop-grid reveal" id="homeShopGrid">
+            <!-- โหลดจาก Supabase -->
+            <div style="grid-column:1/-1; text-align:center; padding:40px; color:#777;">
+                <span class="btn-loader" style="display:inline-block; width:30px; height:30px; border:3px solid rgba(85,107,47,0.2); border-top-color:#556B2F; border-radius:50%; animation:spin 0.8s linear infinite;"></span>
+                <p style="margin-top:12px;">กำลังโหลดสินค้า...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="faq-section" id="faq">
+        <div class="section-header reveal">
+            <span class="overline">ถาม-ตอบ</span>
+            <h2>คำถามที่พบบ่อย</h2>
+            <p>รวบรวมคำถามยอดนิยมจากผู้เรียนสานกระจูด พร้อมคำตอบจากช่างผู้เชี่ยวชาญ</p>
+        </div>
+
+        <div class="faq-container reveal">
+            <div class="faq-item" id="faq-1">
+                <div class="faq-question">
+                    <h4>ไม่มีพื้นฐานเลย เริ่มเรียนได้ไหม?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        ได้เลยครับ! คอร์สระดับเริ่มต้นถูกออกแบบมาสำหรับผู้ที่ไม่เคยสานมาก่อนเลย
+                        เราจะสอนตั้งแต่วิธีจับเส้นกระจูด การขึ้นฐาน ไปจนถึงลายพื้นฐาน ทุกขั้นตอนมีวิดีโอสอนประกอบ
+                        ทำตามได้ทันทีครับ
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+                <div class="faq-question">
+                    <h4>สานผิดทำอย่างไร? แก้ไขได้ไหม?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        สานผิดเป็นเรื่องปกติครับ โดยเฉพาะช่วงแรกๆ ข้อดีของกระจูดคือสามารถดึงเส้นออกแล้วสานใหม่ได้เลย
+                        ไม่ต้องกังวล ยิ่งทำบ่อยจะยิ่งชำนาญมากขึ้น แต่ถ้าสานไปมากแล้ว แนะนำให้เริ่มใหม่จะดีกว่าครับ
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+                <div class="faq-question">
+                    <h4>เส้นกระจูดขึ้นรา แก้ปัญหาอย่างไร?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        ปัญหาราเกิดจากความชื้นครับ ป้องกันได้โดย: 1) เก็บในที่แห้งและมีอากาศถ่ายเท 2) ตากแดดเป็นระยะ 3)
+                        หลีกเลี่ยงการเก็บในถุงพลาสติกปิดสนิท 4) ถ้าเริ่มขึ้นราเล็กน้อย
+                        ใช้ผ้าชุบน้ำส้มสายชูเช็ดแล้วตากแดด จะช่วยได้ครับ
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+                <div class="faq-question">
+                    <h4>หาซื้อเส้นกระจูดได้ที่ไหน?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        สั่งซื้อได้ง่ายๆ ผ่านร้านค้าบนเว็บไซต์ของเราเลยครับ เราส่งตรงจากชุมชนทะเลน้อย จังหวัดพัทลุง
+                        รับประกันคุณภาพ และรายได้จะกลับสู่ชุมชนโดยตรง หรือจะหาซื้อตามร้านงานคราฟต์ในตลาดสัมมนาก็ได้ครับ
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+                <div class="faq-question">
+                    <h4>ต้องใช้เวลาเรียนนานแค่ไหนถึงจะสานเป็น?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        จากประสบการณ์ของผู้เรียน ส่วนใหญ่จะสานลายพื้นฐานเป็นภายใน 2-3 ชั่วโมงแรก
+                        และสามารถสร้างชิ้นงานเล็กๆ ได้ภายในสัปดาห์แรก สำหรับกระเป๋าทรงสวยๆ อาจใช้เวลาฝึกฝนประมาณ 2-4
+                        สัปดาห์ครับ ขึ้นอยู่กับเวลาฝึกในแต่ละวัน
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-6">
+                <div class="faq-question">
+                    <h4>ผลงานที่สานเสร็จแล้วสามารถนำไปขายได้ไหม?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        ได้ครับ! ผลิตภัณฑ์กระจูดกำลังเป็นที่นิยมมากในตลาดงานคราฟต์ทั้งในและต่างประเทศ
+                        หลายคนที่เริ่มต้นจากการเรียน สามารถต่อยอดเป็นรายได้เสริมหรือแม้กระทั่งอาชีพหลักได้
+                        เราแนะนำให้เริ่มขายผ่านแพลตฟอร์มออนไลน์ หรือตลาดนัดงานคราฟต์ครับ
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMMUNITY CTA SECTION ===== -->
+    <section class="community-section" id="community">
+        <div class="community-content reveal">
+            <h2>ชุมชนนักสานกระจูด</h2>
+            <p>
+                เข้าร่วมชุมชนของเรา มาอวดผลงาน แลกเปลี่ยนเทคนิค และเรียนรู้ไปด้วยกัน
+                กว่า 1,200 คนที่กำลังสนุกกับการออกแบบด้วยเส้นกระจูด
+            </p>
+            <div class="community-links">
+                <a href="#" class="btn-community fb" id="btn-facebook-group">
+                    📘 เข้ากลุ่ม Facebook
+                </a>
+                <a href="#" class="btn-community line" id="btn-line-group">
+                    💬 เข้ากลุ่ม Line
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <span class="logo-icon">🌾</span>
+                    สานเสน่ห์กระจูด
+                </a>
+                <p>อนุรักษ์ภูมิปัญญาท้องถิ่น พัฒนาสู่งานคราฟต์สากล เรียนรู้การสานกระจูดจากชุมชนทะเลน้อย จังหวัดพัทลุง
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>เมนูหลัก</h4>
+                <a href="#home">หน้าแรก</a>
+                <a href="#story">เรื่องราวกระจูด</a>
+                <a href="#materials">วัสดุอุปกรณ์</a>
+                <a href="#courses">คอร์สเรียน</a>
+                <a href="#gallery">แกลเลอรี</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>ข้อมูลเพิ่มเติม</h4>
+                <a href="#shop">ร้านค้าวัสดุ</a>
+                <a href="#faq">ถาม-ตอบ</a>
+                <a href="#community">ชุมชน</a>
+                <a href="#">นโยบายความเป็นส่วนตัว</a>
+                <a href="#">เงื่อนไขการใช้บริการ</a>
+            </div>
+
+            <div class="footer-col footer-newsletter">
+                <h4>รับข่าวสารและเทคนิค</h4>
+                <p>สมัครรับอีเมลเพื่อรับเทคนิคการสาน คอร์สใหม่ และโปรโมชันพิเศษ</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="กรอกอีเมลของคุณ" required id="newsletter-email">
+                    <button type="submit">สมัคร</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 สานเสน่ห์กระจูด. สงวนลิขสิทธิ์</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook" id="social-facebook">📘</a>
+                <a href="#" aria-label="Instagram" id="social-instagram">📷</a>
+                <a href="#" aria-label="YouTube" id="social-youtube">🎬</a>
+                <a href="#" aria-label="TikTok" id="social-tiktok">🎵</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCROLL TO TOP BUTTON ===== -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="กลับไปด้านบน">↑</button>
+
+    <!-- ===== GALLERY LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <img src="" alt="ภาพขยาย" id="lightboxImg">
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
